@@ -1,1 +1,3 @@
-# CherryPicker
+# To run CherryPicker
+
+npm start
