@@ -74,8 +74,8 @@ const NavItem = styled(Link)`
 /* eslint-disable */
 const NavTitle = styled.h1`
   font-size: 40px;
-  color: ${(props) =>
-    props.color ? theme.colours.maroon : theme.colours.black};
+  color: ${({ color } = {}) =>
+    color ? theme.colours.maroon : theme.colours.black};
 `;
 
 const PortalLayout = ({ children, pathname }) => (
