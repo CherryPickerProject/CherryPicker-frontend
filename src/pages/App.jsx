@@ -21,7 +21,6 @@ const App = ({ location: { pathname } } = {}) => {
 
   useEffect(() => {
     setQuery(
-      /* eslint-disable-next-line */
       '?q=keyword="birthday"&region="east"&pax=10&rating=5&priceRange=1000&time=afternoon'
     );
   });

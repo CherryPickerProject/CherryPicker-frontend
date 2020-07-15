@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, Segment } from 'semantic-ui-react';
-import { mockSearchDetails } from '../api/searchDetails';
+import mockSearchDetails from '../api/searchDetails';
 import PortalLayout from '../layouts/PortalLayout';
 import DetailCard from '../component/DetailCard';
 import PaginationComponent from '../component/Pagination';
@@ -18,10 +18,7 @@ const Details = ({ location: { pathname, search } } = {}) => {
         location: detail.location,
         description: detail.description,
         imageLink: detail.images[0],
-        /* eslint-disable-next-line */
-        price: detail.price.reduce((acc, { pricing }) => {
-          return acc.concat(pricing);
-        }, []),
+        price: detail.price.reduce((acc, { pricing }) => acc.concat(pricing), [])
       });
     });
     setMockData(result);
@@ -87,7 +84,7 @@ const Details = ({ location: { pathname, search } } = {}) => {
         )}
         <Grid centered>
           <Grid.Row style={{ 'margin-top': '20px' }}>
-            <PaginationComponent totalPage={mockData.length} />
+            <PaginationComponent totalPages={mockData.length} />
           </Grid.Row>
         </Grid>
       </div>

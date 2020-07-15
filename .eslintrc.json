@@ -4,6 +4,7 @@
     "es2020": true
   },
   "extends": ["plugin:react/recommended", "airbnb"],
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -16,6 +17,12 @@
     "linebreak-style": 0,
     "react/prop-types": 0,
     "no-unused-expressions": 0,
-    "react/jsx-props-no-spreading": 0
+    "react/jsx-props-no-spreading": 0,
+    "comma-dangle": [
+      "error",
+      {
+        "functions": "never"
+      }
+    ]
   }
 }

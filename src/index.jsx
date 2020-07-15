@@ -15,6 +15,5 @@ ReactDOM.render(
       <Route exact path="/detail" component={Details} />
     </Switch>
   </BrowserRouter>,
-  /* eslint-disable-next-line */
   document.getElementById('root')
 );

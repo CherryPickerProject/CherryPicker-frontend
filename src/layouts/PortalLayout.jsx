@@ -66,7 +66,7 @@ const NavItem = styled(Link)`
   font-size: 18px;
   font-weight: bold;
   color: ${theme.colours.maroon};
-  text-decoration: ${({ selected } = {}) => (selected ? true : 'none')};
+  text-decoration: ${({ selected }) => (selected ? 'underline' : 'none')};
   padding: 0px 0px 0px 40px;
 
   :hover {
@@ -75,38 +75,34 @@ const NavItem = styled(Link)`
   }
 `;
 
-/* eslint-disable */
 const NavTitle = styled.h1`
   font-size: 40px;
-  color: ${({ color } = {}) =>
-    color ? theme.colours.maroon : theme.colours.black};
+  color: ${({ color } = {}) => (color ? theme.colours.maroon : theme.colours.black)};
 `;
 
-const PortalLayout = ({ children, pathname }) => {
-  return (
-    <PortalLayoutStyled>
-      <div className="layout--main">
-        <div className="layout--navbar">
-          <div className="navbar--title">
-            <NavTitle color> Cherry</NavTitle>
-            <NavTitle style={{ marginBottom: '35px' }}>Picker</NavTitle>
-          </div>
-          <div className="navbar--item">
-            <NavItem selected={pathname === '/about'} to="/about">
-              About us
-            </NavItem>
-            <NavItem selected={pathname === '/bookmarks'} to="/bookmarks">
-              Bookmarks
-            </NavItem>
-            <NavItem selected={pathname === '/'} to="/">
-              <FaHome />
-            </NavItem>
-          </div>
+const PortalLayout = ({ children, pathname }) => (
+  <PortalLayoutStyled>
+    <div className="layout--main">
+      <div className="layout--navbar">
+        <div className="navbar--title">
+          <NavTitle color> Cherry</NavTitle>
+          <NavTitle style={{ marginBottom: '35px' }}>Picker</NavTitle>
         </div>
-        <div className="layout--children">{children}</div>
+        <div className="navbar--item">
+          <NavItem selected={pathname === '/about'} to="/about">
+            About us
+          </NavItem>
+          <NavItem selected={pathname === '/bookmarks'} to="/bookmarks">
+            Bookmarks
+          </NavItem>
+          <NavItem selected={pathname === '/'} to="/">
+            <FaHome />
+          </NavItem>
+        </div>
       </div>
-    </PortalLayoutStyled>
-  );
-};
+      <div className="layout--children">{children}</div>
+    </div>
+  </PortalLayoutStyled>
+);
 
 export default PortalLayout;
