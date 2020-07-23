@@ -1,34 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { FiArrowRightCircle } from 'react-icons/fi';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import theme from '../config/theme';
+import React, { useState } from 'react';
+import LandingFilter from '../components/LandingFilter';
 import PortalLayout from '../layouts/PortalLayout';
-
-const Gobutton = styled(Link)`
-  font-size: 50px;
-  font-weight: bold;
-  color: ${theme.colours.maroon};
-
-  :hover {
-    color: ${theme.colours.maroon};
-    opacity: 0.8;
-  }
-`;
+import Timeline from '../components/Timeline';
 
 const App = ({ location: { pathname } } = {}) => {
-  const [query, setQuery] = useState();
+  const [category, setCategory] = useState('Party');
+  const handleTimelineChange = (name, e) => {
+    e.preventDefault();
+    [...document.getElementById('categoryList').children].forEach((child) => {
+      child.classList.remove('active');
+    });
+    document.getElementById(name).classList.add('active');
+    setCategory(name);
+  };
 
-  useEffect(() => {
-    setQuery(
-      '?q=keyword="birthday"&region="east"&pax=10&rating=5&priceRange=1000&time=afternoon'
-    );
-  });
   return (
     <PortalLayout pathname={pathname}>
-      <Gobutton to={`/detail/${query}`}>
-        <FiArrowRightCircle />
-      </Gobutton>
+      <Timeline onClick={handleTimelineChange} />
+      <LandingFilter category={category} />
     </PortalLayout>
   );
 };
