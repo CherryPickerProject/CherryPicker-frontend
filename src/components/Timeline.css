@@ -1,3 +1,18 @@
+.Timeline {
+  left: 15px;
+  position: absolute;
+  width: 3px;
+  margin: auto;
+  height: 500px;
+  background-color: #C4C4C4;
+}
+
+@media only screen and (min-width: 1215px) {
+  .Timeline {
+    left: 100px;
+  }
+}
+
 .TimelineDot {
   z-index: 999;
   position: absolute;

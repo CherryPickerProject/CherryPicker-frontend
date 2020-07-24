@@ -70,8 +70,8 @@ const LandingFilter = ({ category } = {}) => {
 
   return (
     <Grid container>
-      <Grid.Column width={2} />
-      <Grid.Column mobile={10} tablet={8} computer={6}>
+      <Grid.Column mobile={4} tablet={3} computer={2} />
+      <Grid.Column mobile={12} tablet={8} computer={6}>
         <Form>
           <Form.Field>
             <h1 style={{ fontSize: '3rem', fontWeight: '500' }}>{category}</h1>

@@ -1,20 +1,12 @@
 import React from 'react';
 import './Timeline.css';
 
-const timelineLine = {
-  position: 'absolute',
-  width: '3px',
-  left: '100px',
-  margin: 'auto',
-  height: '500px',
-  background: '#C4C4C4'
-};
-const offset = 10;
+const offset = 40;
 
 const Timeline = ({ onClick } = {}) => (
   (
     <div>
-      <div id="categoryList" style={timelineLine}>
+      <div id="categoryList" className="Timeline">
         <span id="Workshop" className="TimelineDot" style={{ top: `${offset}px` }}>
           <span role="link" tabIndex="0" onClick={(e) => onClick('Workshop', e)}>Workshop</span>
         </span>
