@@ -44,7 +44,8 @@ const LandingFilter = ({ category } = {}) => {
     keyword: '',
     region: '',
     pax: '',
-    rating: ''
+    rating: '',
+    price: '100'
   });
   const onChange = (e, result) => {
     const { name, value } = result || e.target;
@@ -61,12 +62,13 @@ const LandingFilter = ({ category } = {}) => {
         onChange: (value) => {
           const val = `SGD ${value}`;
           $('#range-amount').html(val);
+          setValues({ ...values, price: value });
         }
       });
     });
   }, []);
 
-  const handleSubmit = () => `/detail/?keyword="${values.keyword}"&region="${values.region}"&pax=${values.pax}&rating=${values.rating}`;
+  const handleSubmit = () => `/detail/?category="${category}"&keyword="${values.keyword}"&region="${values.region}"&pax=${values.pax}&rating=${values.rating}&price=${values.price}`;
 
   return (
     <Grid container>
