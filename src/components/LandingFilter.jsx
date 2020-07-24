@@ -131,13 +131,12 @@ const LandingFilter = ({ category } = {}) => {
             <span id="range-amount" style={{ display: 'block', width: '100%', textAlign: 'end' }} />
             <div className="ui range" id="amount-slider" />
           </Form.Field>
-          <Form.Field>
+          <Form.Field style={{ textAlign: 'end' }}>
             <GoButton
               to={handleSubmit}
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'flex-end'
+                display: 'inline-flex',
+                alignItems: 'center'
               }}
             >
               <span style={{ fontSize: '1rem', marginRight: '10px' }}>Explore</span>
