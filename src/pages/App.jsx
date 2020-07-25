@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LandingFilter from '../components/LandingFilter';
 import PortalLayout from '../layouts/PortalLayout';
-import Timeline from '../components/Timeline';
+import Timeline from '../components/Timeline/Timeline';
 
 const App = ({ location: { pathname } } = {}) => {
   const [category, setCategory] = useState('Party');

@@ -7,37 +7,19 @@ import {
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import theme from '../config/theme';
+import { regionOptions, paxOptions, ratingOptions } from '../config/constant';
 
 const GoButton = styled(Link)`
   font-size: 50px;
   font-weight: bold;
+  display: inline-flex;
+  align-items: center;
   color: ${theme.colours.maroon};
   :hover {
     color: ${theme.colours.maroon};
     opacity: 0.8;
   }
 `;
-
-const regionOptions = [
-  { key: 'North', text: 'North', value: 'North' },
-  { key: 'South', text: 'South', value: 'South' },
-  { key: 'East', text: 'East', value: 'East' },
-  { key: 'West', text: 'West', value: 'West' }
-];
-
-const paxOptions = [
-  { key: '1-5', text: '1-5', value: '1-5' },
-  { key: '6-10', text: '6-10', value: '6-10' },
-  { key: '> 11', text: '> 11', value: '> 11' }
-];
-
-const ratingOptions = [
-  { key: '5', text: '5', value: '5' },
-  { key: '4', text: '4', value: '4' },
-  { key: '3', text: '3', value: '3' },
-  { key: '2', text: '2', value: '2' },
-  { key: '1', text: '1', value: '1' }
-];
 
 const LandingFilter = ({ category } = {}) => {
   const [values, setValues] = useState({
@@ -53,18 +35,16 @@ const LandingFilter = ({ category } = {}) => {
   };
 
   useEffect(() => {
-    $(document).ready(() => {
-      $('#amount-slider').range({
-        min: 0,
-        max: 500,
-        start: 100,
-        step: 10,
-        onChange: (value) => {
-          const val = `SGD ${value}`;
-          $('#range-amount').html(val);
-          setValues({ ...values, price: value });
-        }
-      });
+    $('#amount-slider').range({
+      min: 0,
+      max: 500,
+      start: 100,
+      step: 10,
+      onChange: (value) => {
+        const val = `SGD ${value}`;
+        $('#range-amount').html(val);
+        setValues({ ...values, price: value });
+      }
     });
   }, []);
 
@@ -134,10 +114,6 @@ const LandingFilter = ({ category } = {}) => {
           <Form.Field style={{ textAlign: 'end' }}>
             <GoButton
               to={handleSubmit}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center'
-              }}
             >
               <span style={{ fontSize: '1rem', marginRight: '10px' }}>Explore</span>
               <FiArrowRightCircle />
