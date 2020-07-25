@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LandingFilter from '../components/LandingFilter';
+import LandingFilter from '../components/LandingFilter/LandingFilter';
 import PortalLayout from '../layouts/PortalLayout';
 import Timeline from '../components/Timeline/Timeline';
 

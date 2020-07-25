@@ -4,22 +4,10 @@ import { FiArrowRightCircle } from 'react-icons/fi';
 import {
   Dropdown, Grid, Form
 } from 'semantic-ui-react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import theme from '../config/theme';
-import { regionOptions, paxOptions, ratingOptions } from '../config/constant';
-
-const GoButton = styled(Link)`
-  font-size: 50px;
-  font-weight: bold;
-  display: inline-flex;
-  align-items: center;
-  color: ${theme.colours.maroon};
-  :hover {
-    color: ${theme.colours.maroon};
-    opacity: 0.8;
-  }
-`;
+import { regionOptions, paxOptions, ratingOptions } from '../../config/constant';
+import {
+  CategoryHeader, BriefText, ButtonWrapper, GoButton, ButtonText
+} from './LandingFilter.styles';
 
 const LandingFilter = ({ category } = {}) => {
   const [values, setValues] = useState({
@@ -56,11 +44,11 @@ const LandingFilter = ({ category } = {}) => {
       <Grid.Column mobile={12} tablet={8} computer={6}>
         <Form>
           <Form.Field>
-            <h1 style={{ fontSize: '3rem', fontWeight: '500' }}>{category}</h1>
-            <div style={{ color: theme.colours.maroon, textAlign: 'justify' }}>
+            <CategoryHeader>{category}</CategoryHeader>
+            <BriefText>
               A powerful search engine that helps you compare pricing
               from different venue rental websites
-            </div>
+            </BriefText>
           </Form.Field>
           <Form.Field>
             <input
@@ -111,13 +99,15 @@ const LandingFilter = ({ category } = {}) => {
             <span id="range-amount" style={{ display: 'block', width: '100%', textAlign: 'end' }} />
             <div className="ui range" id="amount-slider" />
           </Form.Field>
-          <Form.Field style={{ textAlign: 'end' }}>
-            <GoButton
-              to={handleSubmit}
-            >
-              <span style={{ fontSize: '1rem', marginRight: '10px' }}>Explore</span>
-              <FiArrowRightCircle />
-            </GoButton>
+          <Form.Field>
+            <ButtonWrapper>
+              <GoButton
+                to={handleSubmit}
+              >
+                <ButtonText>Explore</ButtonText>
+                <FiArrowRightCircle />
+              </GoButton>
+            </ButtonWrapper>
           </Form.Field>
         </Form>
       </Grid.Column>
