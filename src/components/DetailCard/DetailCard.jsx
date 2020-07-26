@@ -1,6 +1,6 @@
 import React from 'react';
 import { Segment, Placeholder } from 'semantic-ui-react';
-import theme from '../config/theme';
+import SegmentStyle from './DetailCard.styled';
 
 const DetailCard = ({
   title,
@@ -9,7 +9,7 @@ const DetailCard = ({
   price,
   imageLink
 } = {}) => (!title ? (
-  <Segment style={{ borderColor: theme.colours.maroon }}>
+  <Segment style={SegmentStyle}>
     <div className="ui items">
       <div className="item">
         <div className="image">
@@ -29,7 +29,7 @@ const DetailCard = ({
     </div>
   </Segment>
 ) : (
-  <Segment style={{ borderColor: theme.colours.maroon }}>
+  <Segment style={SegmentStyle} s>
     <div className="ui items">
       <div className="item">
         <div className="image">

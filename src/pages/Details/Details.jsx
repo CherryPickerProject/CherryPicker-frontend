@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, Segment } from 'semantic-ui-react';
-import mockSearchDetails from '../api/searchDetails';
-import PortalLayout from '../layouts/PortalLayout';
-import DetailCard from '../components/DetailCard';
-import PaginationComponent from '../components/Pagination';
-import theme from '../config/theme';
+import mockSearchDetails from '../../api/searchDetails';
+import PortalLayout from '../../layouts/PortalLayout';
+import DetailCard from '../../components/DetailCard/DetailCard';
+import PaginationComponent from '../../components/Pagination';
+import style from './Details.style';
 
 const Details = ({ location: { pathname, search } } = {}) => {
   const [mockData, setMockData] = useState([]);
@@ -18,7 +18,10 @@ const Details = ({ location: { pathname, search } } = {}) => {
         location: detail.location,
         description: detail.description,
         imageLink: detail.images[0],
-        price: detail.price.reduce((acc, { pricing }) => acc.concat(pricing), [])
+        price: detail.price.reduce(
+          (acc, { pricing }) => acc.concat(pricing),
+          []
+        )
       });
     });
     setMockData(result);
@@ -30,22 +33,8 @@ const Details = ({ location: { pathname, search } } = {}) => {
   return (
     <PortalLayout pathname={pathname}>
       <div>
-        <div className="row" style={{ 'margin-bottom': '20px' }}>
-          <div
-            className="ui menu"
-            style={{ borderColor: theme.colours.maroon }}
-          >
-            <div className="header item">Filter by</div>
-            <a href="!#" className="item">
-              Price
-            </a>
-            <a href="!#" className="item">
-              Distance
-            </a>
-            <a href="!#" className="item">
-              Alphatbetical
-            </a>
-          </div>
+        <div className="row" style={style.filterbarStyle}>
+          TODO: Add in the filter components here
         </div>
         {loading ? (
           <div>
@@ -57,7 +46,7 @@ const Details = ({ location: { pathname, search } } = {}) => {
                   ))}
                 </Grid.Column>
                 <Grid.Column width={4}>
-                  <Segment style={{ borderColor: theme.colours.maroon }}>
+                  <Segment style={style.detailCardBorderStyle}>
                     TODO: MAP
                   </Segment>
                 </Grid.Column>
@@ -74,7 +63,7 @@ const Details = ({ location: { pathname, search } } = {}) => {
                   ))}
                 </Grid.Column>
                 <Grid.Column width={4}>
-                  <Segment style={{ borderColor: theme.colours.maroon }}>
+                  <Segment style={style.detailCardBorderStyle}>
                     TODO: MAP
                   </Segment>
                 </Grid.Column>
@@ -83,7 +72,7 @@ const Details = ({ location: { pathname, search } } = {}) => {
           </div>
         )}
         <Grid centered>
-          <Grid.Row style={{ 'margin-top': '20px' }}>
+          <Grid.Row style={style.paginationStyle}>
             <PaginationComponent totalPages={mockData.length} />
           </Grid.Row>
         </Grid>
