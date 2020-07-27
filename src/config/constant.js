@@ -5,7 +5,8 @@ export const regionOptions = [
   { key: 'North', text: 'North', value: 'North' },
   { key: 'South', text: 'South', value: 'South' },
   { key: 'East', text: 'East', value: 'East' },
-  { key: 'West', text: 'West', value: 'West' }
+  { key: 'West', text: 'West', value: 'West' },
+  { key: 'Central', text: 'Central', value: 'Central' }
 ];
 
 export const paxOptions = [
@@ -19,5 +20,6 @@ export const ratingOptions = [
   { key: '4', text: '4', value: '4' },
   { key: '3', text: '3', value: '3' },
   { key: '2', text: '2', value: '2' },
-  { key: '1', text: '1', value: '1' }
+  { key: '1', text: '1', value: '1' },
+  { key: '0', text: '0', value: '0' }
 ];
