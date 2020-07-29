@@ -1,6 +1,7 @@
 /* eslint-env jquery */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FiArrowRightCircle } from 'react-icons/fi';
+import Slider from 'rc-slider';
 import {
   Dropdown, Grid, Form
 } from 'semantic-ui-react';
@@ -8,6 +9,7 @@ import { regionOptions, paxOptions, ratingOptions } from '../../config/constant'
 import {
   CategoryHeader, BriefText, ButtonWrapper, GoButton, ButtonText
 } from './LandingFilter.styles';
+import 'rc-slider/assets/index.css';
 
 const LandingFilter = ({ category } = {}) => {
   const [values, setValues] = useState({
@@ -21,20 +23,11 @@ const LandingFilter = ({ category } = {}) => {
     const { name, value } = result || e.target;
     setValues({ ...values, [name]: value });
   };
-
-  useEffect(() => {
-    $('#amount-slider').range({
-      min: 0,
-      max: 500,
-      start: 100,
-      step: 10,
-      onChange: (value) => {
-        const val = `SGD ${value}`;
-        $('#range-amount').html(val);
-        setValues({ ...values, price: value });
-      }
-    });
-  }, []);
+  const onSliderChange = (value) => {
+    const val = `SGD ${value}`;
+    $('#range-amount').html(val);
+    setValues({ ...values, price: value });
+  };
 
   const handleSubmit = () => `/detail/?category="${category}"&keyword="${values.keyword}"&region="${values.region}"&pax=${values.pax}&rating=${values.rating}&price=${values.price}`;
 
@@ -96,8 +89,18 @@ const LandingFilter = ({ category } = {}) => {
             </Grid>
           </Form.Field>
           <Form.Field>
-            <span id="range-amount" style={{ display: 'block', width: '100%', textAlign: 'end' }} />
-            <div className="ui range" id="amount-slider" />
+            <span id="range-amount" style={{ display: 'block', width: '100%', textAlign: 'end' }}>
+              SGD 100
+            </span>
+            <Slider
+              min={0}
+              max={500}
+              defaultValue={100}
+              step={10}
+              onChange={onSliderChange}
+              trackStyle={{ backgroundColor: 'black' }}
+              handleStyle={{ borderColor: 'black' }}
+            />
           </Form.Field>
           <Form.Field>
             <ButtonWrapper>
