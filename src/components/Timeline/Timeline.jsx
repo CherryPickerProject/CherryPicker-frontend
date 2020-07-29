@@ -1,26 +1,26 @@
 import React from 'react';
-import './Timeline.css';
+import { TimelineWrapper, TimelineDot, TimelineText } from './Timeline.styles';
 
-const Timeline = ({ onClick } = {}) => (
+const Timeline = ({ active, onClick } = {}) => (
   (
     <div>
-      <div id="categoryList" className="Timeline">
-        <span id="Workshop" className="TimelineDot">
-          <span role="link" tabIndex="0" onClick={(e) => onClick('Workshop', e)}>Workshop</span>
-        </span>
-        <span id="Wedding" className="TimelineDot">
-          <span role="link" tabIndex="0" onClick={(e) => onClick('Wedding', e)}>Wedding</span>
-        </span>
-        <span id="Party" className="TimelineDot active">
-          <span role="link" tabIndex="0" onClick={(e) => onClick('Party', e)}>Party</span>
-        </span>
-        <span id="Outdoor" className="TimelineDot">
-          <span role="link" tabIndex="0" onClick={(e) => onClick('Outdoor', e)}>Outdoor</span>
-        </span>
-        <span id="Fitness" className="TimelineDot">
-          <span role="link" tabIndex="0" onClick={(e) => onClick('Fitness', e)}>Fitness</span>
-        </span>
-      </div>
+      <TimelineWrapper id="categoryList">
+        <TimelineDot id="Workshop" active={active === 'Workshop'}>
+          <TimelineText onClick={(e) => onClick('Workshop', e)}>Workshop</TimelineText>
+        </TimelineDot>
+        <TimelineDot id="Wedding" active={active === 'Wedding'}>
+          <TimelineText onClick={(e) => onClick('Wedding', e)}>Wedding</TimelineText>
+        </TimelineDot>
+        <TimelineDot id="Party" active={active === 'Party'}>
+          <TimelineText onClick={(e) => onClick('Party', e)}>Party</TimelineText>
+        </TimelineDot>
+        <TimelineDot id="Outdoor" active={active === 'Outdoor'}>
+          <TimelineText onClick={(e) => onClick('Outdoor', e)}>Outdoor</TimelineText>
+        </TimelineDot>
+        <TimelineDot id="Fitness" active={active === 'Fitness'}>
+          <TimelineText onClick={(e) => onClick('Fitness', e)}>Fitness</TimelineText>
+        </TimelineDot>
+      </TimelineWrapper>
     </div>
   )
 );
