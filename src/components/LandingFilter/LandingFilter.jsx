@@ -1,15 +1,13 @@
 /* eslint-env jquery */
 import React, { useState } from 'react';
-import { FiArrowRightCircle } from 'react-icons/fi';
-import Slider from 'rc-slider';
+import { Grid, Form } from 'semantic-ui-react';
 import {
-  Dropdown, Grid, Form
-} from 'semantic-ui-react';
-import { regionOptions, paxOptions, ratingOptions } from '../../config/constant';
-import {
-  CategoryHeader, BriefText, ButtonWrapper, GoButton, ButtonText
+  CategoryHeader, BriefText, ButtonWrapper
 } from './LandingFilter.styles';
-import 'rc-slider/assets/index.css';
+import KeywordInput from './KeywordInput/KeywordInput';
+import { RegionDropdown, PaxDropdown, RatingDropdown } from './Dropdown/Dropdown';
+import PriceSlider from './PriceSlider/PriceSlider';
+import ExploreButton from './ExploreButton/ExploreButton';
 
 const LandingFilter = ({ category } = {}) => {
   const [values, setValues] = useState({
@@ -22,11 +20,6 @@ const LandingFilter = ({ category } = {}) => {
   const onChange = (e, result) => {
     const { name, value } = result || e.target;
     setValues({ ...values, [name]: value });
-  };
-  const onSliderChange = (value) => {
-    const val = `SGD ${value}`;
-    $('#range-amount').html(val);
-    setValues({ ...values, price: value });
   };
 
   const handleSubmit = () => `/detail/?category="${category}"&keyword="${values.keyword}"&region="${values.region}"&pax=${values.pax}&rating=${values.rating}&price=${values.price}`;
@@ -44,72 +37,27 @@ const LandingFilter = ({ category } = {}) => {
             </BriefText>
           </Form.Field>
           <Form.Field>
-            <input
-              name="keyword"
-              value={values.keyword}
-              onChange={onChange}
-              placeholder="Type Keywords"
-            />
+            <KeywordInput value={values.keyword} onChange={onChange} />
           </Form.Field>
           <Form.Field>
             <Grid columns={3} stackable>
               <Grid.Column>
-                <Dropdown
-                  placeholder="Region"
-                  fluid
-                  selection
-                  name="region"
-                  value={values.region}
-                  options={regionOptions}
-                  onChange={onChange}
-                />
+                <RegionDropdown value={values.region} onChange={onChange} />
               </Grid.Column>
               <Grid.Column>
-                <Dropdown
-                  placeholder="Pax"
-                  fluid
-                  selection
-                  name="pax"
-                  value={values.pax}
-                  options={paxOptions}
-                  onChange={onChange}
-                />
+                <PaxDropdown value={values.pax} onChange={onChange} />
               </Grid.Column>
               <Grid.Column>
-                <Dropdown
-                  placeholder="Rating"
-                  fluid
-                  selection
-                  name="rating"
-                  value={values.rating}
-                  options={ratingOptions}
-                  onChange={onChange}
-                />
+                <RatingDropdown value={values.rating} onChange={onChange} />
               </Grid.Column>
             </Grid>
           </Form.Field>
           <Form.Field>
-            <span id="range-amount" style={{ display: 'block', width: '100%', textAlign: 'end' }}>
-              SGD 100
-            </span>
-            <Slider
-              min={0}
-              max={500}
-              defaultValue={100}
-              step={10}
-              onChange={onSliderChange}
-              trackStyle={{ backgroundColor: 'black' }}
-              handleStyle={{ borderColor: 'black' }}
-            />
+            <PriceSlider updatePrice={(value) => { setValues({ ...values, price: value }); }} />
           </Form.Field>
           <Form.Field>
             <ButtonWrapper>
-              <GoButton
-                to={handleSubmit}
-              >
-                <ButtonText>Explore</ButtonText>
-                <FiArrowRightCircle />
-              </GoButton>
+              <ExploreButton handleSubmit={handleSubmit} />
             </ButtonWrapper>
           </Form.Field>
         </Form>
