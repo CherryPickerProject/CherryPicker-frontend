@@ -1,13 +1,12 @@
-/* eslint-env jquery */
 import React, { useState } from 'react';
 import { Grid, Form } from 'semantic-ui-react';
 import {
   CategoryHeader, BriefText, ButtonWrapper
 } from './LandingFilter.styles';
-import KeywordInput from './KeywordInput/KeywordInput';
-import { RegionDropdown, PaxDropdown, RatingDropdown } from './Dropdown/Dropdown';
-import PriceSlider from './PriceSlider/PriceSlider';
-import ExploreButton from './ExploreButton/ExploreButton';
+import KeywordInput from '../KeywordInput/KeywordInput';
+import { DropdownHolder } from '../Dropdown/Dropdown';
+import PriceSlider from '../PriceSlider/PriceSlider';
+import ExploreButton from '../ExploreButton/ExploreButton';
 
 const LandingFilter = ({ category } = {}) => {
   const [values, setValues] = useState({
@@ -42,13 +41,13 @@ const LandingFilter = ({ category } = {}) => {
           <Form.Field>
             <Grid columns={3} stackable>
               <Grid.Column>
-                <RegionDropdown value={values.region} onChange={onChange} />
+                <DropdownHolder placeholder="Region" name="region" value={values.region} onChange={onChange} />
               </Grid.Column>
               <Grid.Column>
-                <PaxDropdown value={values.pax} onChange={onChange} />
+                <DropdownHolder placeholder="Pax" name="pax" value={values.pax} onChange={onChange} />
               </Grid.Column>
               <Grid.Column>
-                <RatingDropdown value={values.rating} onChange={onChange} />
+                <DropdownHolder placeholder="Rating" name="rating" value={values.rating} onChange={onChange} />
               </Grid.Column>
             </Grid>
           </Form.Field>

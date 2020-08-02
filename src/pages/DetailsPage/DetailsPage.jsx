@@ -3,8 +3,8 @@ import { Grid, Segment } from 'semantic-ui-react';
 import mockSearchDetails from '../../api/searchDetails';
 import PortalLayout from '../../layouts/PortalLayout';
 import DetailCard from '../../components/DetailCard/DetailCard';
-import PaginationComponent from '../../components/Pagination';
-import style from './Details.style';
+import PaginationComponent from '../../components/Pagination/Pagination';
+import style from './Details.styles';
 
 const Details = ({ location: { pathname, search } } = {}) => {
   const [mockData, setMockData] = useState([]);
@@ -54,23 +54,23 @@ const Details = ({ location: { pathname, search } } = {}) => {
             </div>
           </div>
         ) : (
-          <div>
-            <div className="row">
-              <Grid centered stackable columns={2}>
-                <Grid.Column width={10}>
-                  {mockData.map((result) => (
-                    <DetailCard {...result} />
-                  ))}
-                </Grid.Column>
-                <Grid.Column width={4}>
-                  <Segment style={style.detailCardBorderStyle}>
-                    TODO: MAP
+            <div>
+              <div className="row">
+                <Grid centered stackable columns={2}>
+                  <Grid.Column width={10}>
+                    {mockData.map((result) => (
+                      <DetailCard {...result} />
+                    ))}
+                  </Grid.Column>
+                  <Grid.Column width={4}>
+                    <Segment style={style.detailCardBorderStyle}>
+                      TODO: MAP
                   </Segment>
-                </Grid.Column>
-              </Grid>
+                  </Grid.Column>
+                </Grid>
+              </div>
             </div>
-          </div>
-        )}
+          )}
         <Grid centered>
           <Grid.Row style={style.paginationStyle}>
             <PaginationComponent totalPages={mockData.length} />
