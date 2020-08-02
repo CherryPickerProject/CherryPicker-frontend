@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { LandingFilter } from '../../components/LandingFilter/LandingFilter';
 import PortalLayout from '../../layouts/PortalLayout';
 import { Timeline } from '../../components/Timeline/Timeline';
-import style from './App.styles';
+import style from './WelcomePage.styles';
 
-const App = ({ location: { pathname } } = {}) => {
+const WelcomePage = ({ location: { pathname } } = {}) => {
   // TODO: Retrieve allCategories from API
   const allCategories = [
     'F&B',
@@ -35,4 +35,4 @@ const App = ({ location: { pathname } } = {}) => {
   );
 };
 
-export default App;
+export default WelcomePage;
