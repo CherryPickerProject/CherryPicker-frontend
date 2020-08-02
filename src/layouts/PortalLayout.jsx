@@ -6,7 +6,7 @@ import { FaHome } from 'react-icons/fa';
 import { PortalLayoutStyled, NavTitle, NavItem } from './PortalLayout.styles';
 
 // Initialize Google Analytics and listen to history
-ReactGA.initialize('UA-173557411-1');
+ReactGA.initialize('UA-174220596-1');
 const browserHistory = createBrowserHistory();
 browserHistory.listen((location) => {
   ReactGA.pageview(location.pathname + location.search);
