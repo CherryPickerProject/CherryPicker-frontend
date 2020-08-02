@@ -1,7 +1,7 @@
 ### To run CherryPicker
 
 npm install
-npm dev
+npm run dev
 
 #### Icons used
 
