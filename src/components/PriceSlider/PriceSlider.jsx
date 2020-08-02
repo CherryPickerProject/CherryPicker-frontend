@@ -21,7 +21,7 @@ export const PriceSlider = ({ updatePrice } = {}) => {
       <Slider
         min={0}
         max={500}
-        defaultValue={200}
+        defaultValue={100}
         step={10}
         onChange={onChange}
         trackStyle={{ backgroundColor: 'black' }}
