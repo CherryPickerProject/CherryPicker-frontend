@@ -17,10 +17,10 @@ export const PortalLayoutStyled = styled('div')`
       display: flex;
       flex-direction: row;
       width: 100%;
-      height: 7%;
+      height: 8%;
       align-items: center;
       position: fixed;
-      z-index: 9;
+      z-index: 9999;
       background-color: ${theme.colours.white};
 
       .navbar--item {
@@ -55,7 +55,8 @@ export const PortalLayoutStyled = styled('div')`
 
     .layout--children {
       flex: 1 1 auto;
-      margin-top: 60px;
+      margin-top: 70px;
+      background-color: ${theme.colours.lightGrey};
     }
   }
 `;
@@ -75,5 +76,6 @@ export const NavItem = styled(Link)`
 
 export const NavTitle = styled.h1`
   font-size: 40px;
-  color: ${({ color } = {}) => (color ? theme.colours.maroon : theme.colours.black)};
+  color: ${({ color } = {}) =>
+    color ? theme.colours.maroon : theme.colours.black};
 `;
