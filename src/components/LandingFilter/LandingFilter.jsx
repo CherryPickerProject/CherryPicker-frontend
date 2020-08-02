@@ -1,20 +1,19 @@
-/* eslint-env jquery */
 import React, { useState } from 'react';
 import { Grid, Form } from 'semantic-ui-react';
 import {
   CategoryHeader, BriefText, ButtonWrapper
 } from './LandingFilter.styles';
-import KeywordInput from './KeywordInput/KeywordInput';
-import { RegionDropdown, PaxDropdown, RatingDropdown } from './Dropdown/Dropdown';
-import PriceSlider from './PriceSlider/PriceSlider';
-import ExploreButton from './ExploreButton/ExploreButton';
+import { KeywordInput } from '../KeywordInput/KeywordInput';
+import { DropdownHolder } from '../Dropdown/Dropdown';
+import { PriceSlider } from '../PriceSlider/PriceSlider';
+import { ExploreButton } from '../ExploreButton/ExploreButton';
 
-const LandingFilter = ({ category } = {}) => {
+export const LandingFilter = ({ category } = {}) => {
   const [values, setValues] = useState({
     keyword: '',
     region: '',
     pax: '',
-    rating: '',
+    ratings: '',
     price: '100'
   });
   const onChange = (e, result) => {
@@ -22,7 +21,7 @@ const LandingFilter = ({ category } = {}) => {
     setValues({ ...values, [name]: value });
   };
 
-  const handleSubmit = () => `/detail/?category="${category}"&keyword="${values.keyword}"&region="${values.region}"&pax=${values.pax}&rating=${values.rating}&price=${values.price}`;
+  const handleSubmit = () => `/detail/?category="${category}"&keyword="${values.keyword}"&region="${values.region}"&pax=${values.pax}&ratings=${values.ratings}&price=${values.price}`;
 
   return (
     <Grid container>
@@ -42,13 +41,13 @@ const LandingFilter = ({ category } = {}) => {
           <Form.Field>
             <Grid columns={3} stackable>
               <Grid.Column>
-                <RegionDropdown value={values.region} onChange={onChange} />
+                <DropdownHolder placeholder="Region" name="region" value={values.region} onChange={onChange} />
               </Grid.Column>
               <Grid.Column>
-                <PaxDropdown value={values.pax} onChange={onChange} />
+                <DropdownHolder placeholder="Pax" name="pax" value={values.pax} onChange={onChange} />
               </Grid.Column>
               <Grid.Column>
-                <RatingDropdown value={values.rating} onChange={onChange} />
+                <DropdownHolder placeholder="Ratings" name="ratings" value={values.ratings} onChange={onChange} />
               </Grid.Column>
             </Grid>
           </Form.Field>
@@ -66,4 +65,3 @@ const LandingFilter = ({ category } = {}) => {
   );
 };
 
-export default LandingFilter;

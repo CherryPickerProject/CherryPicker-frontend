@@ -1,7 +1,5 @@
 import theme from '../../config/theme';
 
-const SegmentStyle = {
+export const SegmentStyle = {
   borderColor: theme.colours.maroon
 };
-
-export default SegmentStyle;

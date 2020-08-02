@@ -1,16 +1,14 @@
 import React from 'react';
 import { FiArrowRightCircle } from 'react-icons/fi';
-import { GoButton, ButtonText } from './ExploreButton.styles';
+import { Explore, ButtonText } from './ExploreButton.styles';
 
-const ExploreButton = ({ handleSubmit } = {}) => (
+export const ExploreButton = ({ handleSubmit } = {}) => (
   <div>
-    <GoButton
+    <Explore
       to={handleSubmit}
     >
       <ButtonText>Explore</ButtonText>
       <FiArrowRightCircle />
-    </GoButton>
+    </Explore>
   </div>
 );
-
-export default ExploreButton;
