@@ -13,7 +13,7 @@ export const LandingFilter = ({ category } = {}) => {
     keyword: '',
     region: '',
     pax: '',
-    rating: '',
+    ratings: '',
     price: '100'
   });
   const onChange = (e, result) => {
@@ -21,7 +21,7 @@ export const LandingFilter = ({ category } = {}) => {
     setValues({ ...values, [name]: value });
   };
 
-  const handleSubmit = () => `/detail/?category="${category}"&keyword="${values.keyword}"&region="${values.region}"&pax=${values.pax}&rating=${values.rating}&price=${values.price}`;
+  const handleSubmit = () => `/detail/?category="${category}"&keyword="${values.keyword}"&region="${values.region}"&pax=${values.pax}&ratings=${values.ratings}&price=${values.price}`;
 
   return (
     <Grid container>
@@ -47,7 +47,7 @@ export const LandingFilter = ({ category } = {}) => {
                 <DropdownHolder placeholder="Pax" name="pax" value={values.pax} onChange={onChange} />
               </Grid.Column>
               <Grid.Column>
-                <DropdownHolder placeholder="Rating" name="rating" value={values.rating} onChange={onChange} />
+                <DropdownHolder placeholder="Ratings" name="ratings" value={values.ratings} onChange={onChange} />
               </Grid.Column>
             </Grid>
           </Form.Field>

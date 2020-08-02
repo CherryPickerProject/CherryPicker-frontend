@@ -15,7 +15,7 @@ export const paxOptions = [
   { key: '> 11', text: '> 11', value: 11 }
 ];
 
-export const ratingOptions = [
+export const ratingsOptions = [
   { key: '5', text: '5', value: '5' },
   { key: '4', text: '4', value: '4' },
   { key: '3', text: '3', value: '3' },
