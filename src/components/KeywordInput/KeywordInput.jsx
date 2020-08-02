@@ -1,6 +1,6 @@
 import React from 'react';
 
-const KeywordInput = ({ value, onChange } = {}) => (
+export const KeywordInput = ({ value, onChange } = {}) => (
   <input
     name="keyword"
     value={value}
@@ -9,4 +9,4 @@ const KeywordInput = ({ value, onChange } = {}) => (
   />
 );
 
-export default KeywordInput;
+

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Segment, Placeholder } from 'semantic-ui-react';
-import SegmentStyle from './DetailCard.styles';
+import { SegmentStyle } from './DetailCard.styles';
 
-const DetailCard = ({
+export const DetailCard = ({
   title, location, description, price, imageLink
 } = {}) => (title ? (
 
@@ -31,25 +31,24 @@ const DetailCard = ({
 
 ) : (
 
-  <Segment style={SegmentStyle}>
-    <div className="ui items">
-      <div className="item">
-        <div className="image">
-          <Placeholder>
-            <Placeholder.Image />
-          </Placeholder>
-        </div>
-        <div className="content">
-          <Placeholder>
-            <Placeholder.Line length="full" />
-            <Placeholder.Line length="very long" />
-            <Placeholder.Line length="long" />
-            <Placeholder.Line length="medium" />
-          </Placeholder>
+    <Segment style={SegmentStyle}>
+      <div className="ui items">
+        <div className="item">
+          <div className="image">
+            <Placeholder>
+              <Placeholder.Image />
+            </Placeholder>
+          </div>
+          <div className="content">
+            <Placeholder>
+              <Placeholder.Line length="full" />
+              <Placeholder.Line length="very long" />
+              <Placeholder.Line length="long" />
+              <Placeholder.Line length="medium" />
+            </Placeholder>
+          </div>
         </div>
       </div>
-    </div>
-  </Segment>
-));
+    </Segment>
+  ));
 
-export default DetailCard;

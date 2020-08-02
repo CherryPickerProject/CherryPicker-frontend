@@ -1,10 +1,10 @@
 /* eslint-env jquery */
 import React from 'react';
 import Slider from 'rc-slider';
-import CategoryHeader from './PriceSlider.styles';
+import { CategoryHeader } from './PriceSlider.styles';
 import 'rc-slider/assets/index.css';
 
-const PriceSlider = ({ updatePrice } = {}) => {
+export const PriceSlider = ({ updatePrice } = {}) => {
   const onChange = (value) => {
     const val = `SGD ${value}`;
     $('#range-amount').html(val);
@@ -29,4 +29,3 @@ const PriceSlider = ({ updatePrice } = {}) => {
   );
 };
 
-export default PriceSlider;

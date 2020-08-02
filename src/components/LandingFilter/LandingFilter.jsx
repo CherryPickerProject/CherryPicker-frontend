@@ -3,12 +3,12 @@ import { Grid, Form } from 'semantic-ui-react';
 import {
   CategoryHeader, BriefText, ButtonWrapper
 } from './LandingFilter.styles';
-import KeywordInput from '../KeywordInput/KeywordInput';
+import { KeywordInput } from '../KeywordInput/KeywordInput';
 import { DropdownHolder } from '../Dropdown/Dropdown';
-import PriceSlider from '../PriceSlider/PriceSlider';
-import ExploreButton from '../ExploreButton/ExploreButton';
+import { PriceSlider } from '../PriceSlider/PriceSlider';
+import { ExploreButton } from '../ExploreButton/ExploreButton';
 
-const LandingFilter = ({ category } = {}) => {
+export const LandingFilter = ({ category } = {}) => {
   const [values, setValues] = useState({
     keyword: '',
     region: '',
@@ -65,4 +65,3 @@ const LandingFilter = ({ category } = {}) => {
   );
 };
 
-export default LandingFilter;

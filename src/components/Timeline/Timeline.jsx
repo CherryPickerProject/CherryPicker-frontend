@@ -1,7 +1,7 @@
 import React from 'react';
 import { TimelineWrapper, TimelineDot, TimelineText } from './Timeline.styles';
 
-const Timeline = ({ active, onClick } = {}) => (
+export const Timeline = ({ active, onClick } = {}) => (
   (
     <div>
       <TimelineWrapper id="categoryList">
@@ -25,4 +25,3 @@ const Timeline = ({ active, onClick } = {}) => (
   )
 );
 
-export default Timeline;

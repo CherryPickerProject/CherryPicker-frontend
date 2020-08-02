@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Grid, Segment } from 'semantic-ui-react';
 import mockSearchDetails from '../../api/searchDetails';
 import PortalLayout from '../../layouts/PortalLayout';
-import DetailCard from '../../components/DetailCard/DetailCard';
-import PaginationComponent from '../../components/Pagination/Pagination';
+import { DetailCard } from '../../components/DetailCard/DetailCard';
+import { PaginationComponent } from '../../components/Pagination/Pagination';
 import style from './Details.styles';
 
 const Details = ({ location: { pathname, search } } = {}) => {
