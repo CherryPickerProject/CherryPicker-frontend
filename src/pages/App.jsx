@@ -4,20 +4,18 @@ import PortalLayout from '../layouts/PortalLayout';
 import { Timeline } from '../components/Timeline/Timeline';
 
 const App = ({ location: { pathname } } = {}) => {
-  const [category, setCategory] = useState('Party');
-  const handleTimelineChange = (name, e) => {
-    e.preventDefault();
-    [...document.getElementById('categoryList').children].forEach((child) => {
-      child.classList.remove('active');
-    });
-    document.getElementById(name).classList.add('active');
-    setCategory(name);
+
+  // TODO: Retrieve allCategories from API
+  const allCategories = ["F&B", "Meeting", "Sports", "Unique", "Outdoor", "Weddings", "Auditorium", "Other"]
+  const [active, setActive] = useState('F&B');
+  const handleTimelineChange = (name) => {
+    setActive(name);
   };
 
   return (
     <PortalLayout pathname={pathname}>
-      <Timeline active={category} onClick={handleTimelineChange} />
-      <LandingFilter category={category} />
+      <Timeline allCategories={allCategories} active={active} onClick={handleTimelineChange} />
+      <LandingFilter category={active} />
     </PortalLayout>
   );
 };
