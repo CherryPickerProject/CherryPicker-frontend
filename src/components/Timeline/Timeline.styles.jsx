@@ -6,6 +6,7 @@ export const TimelineText = styled.span`
   vertical-align: middle;
   position: relative;
   margin-left: 40px;
+  height: 100vh;
 `;
 
 export const TimelineDot = styled.span`
@@ -17,10 +18,8 @@ export const TimelineDot = styled.span`
   display: inline-block;
   border-radius: 50%;
   position: relative;
-
-  background-color: ${(props) => (props.active
-    ? theme.colours.maroon
-    : theme.colours.grey)};
+  background-color: ${(props) =>
+    props.active ? theme.colours.maroon : theme.colours.grey};
 
   :hover {
     color: black;
@@ -29,13 +28,12 @@ export const TimelineDot = styled.span`
 `;
 
 export const TimelineVerticalLine = styled.div`
-  z-index: 999;
+
   left: 15px;
   position: absolute;
   width: 3px;
   margin: auto;
   background-color: ${theme.colours.grey};
-
   @media only screen and (min-width: ${theme.breakpoint.desktop}) {
     left: 100px;
   }
@@ -44,8 +42,4 @@ export const TimelineVerticalLine = styled.div`
     margin-top: 80px;
   }
 
-`;
-
-export const TimelineWrapper = styled.div`
-  height:50px;
 `;

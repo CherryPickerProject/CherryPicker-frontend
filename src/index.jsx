@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
-import App from './pages/App';
+import App from './pages/LandingPage/App';
 import AboutPage from './pages/AboutPage/AboutPage';
 import BookmarksPage from './pages/BookmarksPage/BookmarksPage';
 import DetailsPage from './pages/DetailsPage/DetailsPage';
