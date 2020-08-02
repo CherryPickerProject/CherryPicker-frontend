@@ -16,7 +16,7 @@ const App = ({ location: { pathname } } = {}) => {
 
   return (
     <PortalLayout pathname={pathname}>
-      <Timeline onClick={handleTimelineChange} />
+      <Timeline active={category} onClick={handleTimelineChange} />
       <LandingFilter category={category} />
     </PortalLayout>
   );
