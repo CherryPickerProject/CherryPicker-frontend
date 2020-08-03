@@ -23,7 +23,7 @@ const PortalLayout = ({ children, pathname }) => {
       <div className="layout--main">
         <div className="layout--navbar">
           <div className="navbar--title">
-            <NavTitle color> Cherry</NavTitle>
+            <NavTitle putColour>Cherry</NavTitle>
             <NavTitle style={{ marginBottom: '35px' }}>Picker</NavTitle>
           </div>
           <div className="navbar--item">

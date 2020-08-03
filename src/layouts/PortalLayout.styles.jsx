@@ -76,6 +76,6 @@ export const NavItem = styled(Link)`
 
 export const NavTitle = styled.h1`
   font-size: 40px;
-  color: ${({ color } = {}) =>
-    color ? theme.colours.maroon : theme.colours.black};
+  color: ${({ putColour } = {}) =>
+    putColour ? theme.colours.maroon : theme.colours.black};
 `;
