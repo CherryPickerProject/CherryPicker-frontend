@@ -2,7 +2,8 @@ const style = {
   main: {
     height: '100vh',
     backgroundColor: 'white',
-    display: 'flex'
+    display: 'flex',
+    paddingTop: '40px'
   }
 };
 

@@ -14,19 +14,19 @@ export const PortalLayoutStyled = styled('div')`
     width: 100%;
 
     .layout--navbar {
+      padding-top: 50px;
       display: flex;
       flex-direction: row;
       width: 100%;
-      height: 8%;
+      height: 10%;
       align-items: center;
       position: fixed;
       z-index: 9999;
       background-color: ${theme.colours.white};
 
       .navbar--item {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+        display: inline-flex;
+        justify-content: space-between;
         padding-left: 800px;
         //edit here to adjust the nav-item
         @media only screen and (max-width: ${theme.breakpoint.widescreen}) {
@@ -36,18 +36,18 @@ export const PortalLayoutStyled = styled('div')`
           padding-left: 450px;
         }
         @media only screen and (max-width: ${theme.breakpoint.tablet}) {
-          padding-left: 350px;
+          padding-left: 350x;
         }
         @media only screen and (max-width: ${theme.breakpoint.mobile}) {
-          padding-left: 120px;
+          padding-left: 10px;
         }
       }
 
       .navbar--title {
-        display: flex;
+        display: inline-flex;
+        justify-content: space-between;
         flex-direction: row;
         align-items: center;
-        justify-content: flex-start;
         height: 30px;
         padding-left: 80px;
       }
