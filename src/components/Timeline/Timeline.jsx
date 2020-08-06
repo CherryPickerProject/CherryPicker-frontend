@@ -12,11 +12,11 @@ import theme from '../../config/theme';
 export const Timeline = ({ allCategories, active, onClick } = {}) => {
   // Note that we will not display all categories at once.
   // At any point, there will only be 5 items showing in the timeline
-  // Start and End are the Indexes of the categories that we will show 
+  // Start and End are the Indexes of the categories that we will show
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(5);
 
-  const displayCategories = allCategories.slice(start, end)
+  const displayCategories = allCategories.slice(start, end);
 
   return (
     <div>
@@ -32,8 +32,8 @@ export const Timeline = ({ allCategories, active, onClick } = {}) => {
         )
         : ''}
       <TimelineVerticalLine>
-        {displayCategories.map((item, count) => (
-          <TimelineWrapper key={count} onClick={() => onClick(item)}>
+        {displayCategories.map((item) => (
+          <TimelineWrapper key={item.categoryName} onClick={() => onClick(item)}>
             <TimelineDot
               onClick={() => onClick(item)}
               id={item}

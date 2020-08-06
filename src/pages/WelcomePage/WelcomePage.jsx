@@ -13,8 +13,7 @@ const WelcomePage = ({ location: { pathname } } = {}) => {
     }, {
       categoryName: 'Meeting',
       description: 'Explore our list of ballrooms, conference halls or classrooms which can help host your next company event or something as simple as a group project meeting.'
-    },
-    {
+    }, {
       categoryName: 'Sports',
       description: 'Check out our list of sports facilities where you can organise the next fun bonding activity for you and your friends.'
     }, {
