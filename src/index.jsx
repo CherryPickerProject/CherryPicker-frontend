@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
-import App from './pages/App';
-import About from './pages/About';
-import Bookmarks from './pages/Bookmarks';
-import Details from './pages/Details/Details';
-import NotFound from './pages/NotFound';
+import WelcomePage from './pages/WelcomePage/WelcomePage';
+import AboutPage from './pages/AboutPage/AboutPage';
+import BookmarksPage from './pages/BookmarksPage/BookmarksPage';
+import DetailsPage from './pages/DetailsPage/DetailsPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={App} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/bookmarks" component={Bookmarks} />
-      <Route exact path="/detail" component={Details} />
-      <Route path="*" component={NotFound} />
+      <Route exact path="/" component={WelcomePage} />
+      <Route exact path="/about" component={AboutPage} />
+      <Route exact path="/bookmarks" component={BookmarksPage} />
+      <Route exact path="/detail" component={DetailsPage} />
+      <Route path="*" component={NotFoundPage} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
