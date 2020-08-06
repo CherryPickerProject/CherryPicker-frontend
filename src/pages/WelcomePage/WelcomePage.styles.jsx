@@ -1,7 +1,9 @@
 const style = {
   main: {
     height: '100vh',
-    'background-color': 'white'
+    backgroundColor: 'white',
+    display: 'flex',
+    paddingTop: '40px'
   }
 };
 
