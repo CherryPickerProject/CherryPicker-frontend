@@ -16,4 +16,3 @@ export const ButtonWrapper = styled.div`
 export const Container = styled.div`
   margin-top: 80px;
 `;
-

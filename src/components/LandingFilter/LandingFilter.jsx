@@ -24,12 +24,11 @@ export const LandingFilter = ({ category } = {}) => {
     setValues({ ...values, [name]: value });
   };
 
-  const handleSubmit = () =>
-    `/detail/?category="${category.categoryName}"&keyword="${values.keyword}"&region="${values.region}"&pax=${values.pax}&ratings=${values.ratings}&price=${values.price}`;
+  const handleSubmit = () => `/detail/?category="${category.categoryName}"&keyword="${values.keyword}"&region="${values.region}"&pax=${values.pax}&ratings=${values.ratings}&price=${values.price}`;
 
   return (
     <Container>
-      <Grid container >
+      <Grid container>
         <Grid.Column mobile={4} tablet={3} computer={2} />
         <Grid.Column mobile={12} tablet={8} computer={6}>
           <Form>
@@ -85,7 +84,7 @@ export const LandingFilter = ({ category } = {}) => {
             </Form.Field>
           </Form>
         </Grid.Column>
-      </Grid >
-    </Container >
+      </Grid>
+    </Container>
   );
 };

@@ -17,5 +17,3 @@ export const ButtonText = styled.span`
   font-size: 1rem;
   margin-right: 10px;
 `;
-
-

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaAngleDoubleUp, FaAngleDoubleDown } from 'react-icons/fa';
 import {
   TimelineWrapper,
   TimelineVerticalLine,
@@ -6,9 +7,7 @@ import {
   TimelineText,
   ArrowUp, ArrowDown
 } from './Timeline.styles';
-import { FaAngleDoubleUp, FaAngleDoubleDown } from 'react-icons/fa';
 import theme from '../../config/theme';
-import { useState } from 'react';
 
 export const Timeline = ({ allCategories, active, onClick } = {}) => {
   // Note that we will not display all categories at once.
@@ -22,37 +21,40 @@ export const Timeline = ({ allCategories, active, onClick } = {}) => {
   return (
     <div>
       {start > 0
-        ? <ArrowUp onClick={() => {
-          setStart(start - 1);
-          setEnd(end - 1);
-        }}>
-          <FaAngleDoubleUp color={theme.colours.maroon} size={30} />
-        </ArrowUp>
+        ? (
+          <ArrowUp onClick={() => {
+            setStart(start - 1);
+            setEnd(end - 1);
+          }}
+          >
+            <FaAngleDoubleUp color={theme.colours.maroon} size={30} />
+          </ArrowUp>
+        )
         : ''}
       <TimelineVerticalLine>
-        {displayCategories.map((item, count) => {
-          return (
-            <TimelineWrapper key={count} onClick={() => onClick(item)}>
-              <TimelineDot
-                onClick={() => onClick(item)}
-                id={item}
-                active={active.categoryName === item.categoryName}
-              >
-                <TimelineText>{item.categoryName}</TimelineText>
-              </TimelineDot>
-            </TimelineWrapper>
-          );
-        })}
+        {displayCategories.map((item, count) => (
+          <TimelineWrapper key={count} onClick={() => onClick(item)}>
+            <TimelineDot
+              onClick={() => onClick(item)}
+              id={item}
+              active={active.categoryName === item.categoryName}
+            >
+              <TimelineText>{item.categoryName}</TimelineText>
+            </TimelineDot>
+          </TimelineWrapper>
+        ))}
       </TimelineVerticalLine>
       {end < allCategories.length
-        ?
-        <ArrowDown onClick={() => {
-          setStart(start + 1);
-          setEnd(end + 1);
-        }}>
-          <FaAngleDoubleDown color={theme.colours.maroon} size={30} />
-        </ArrowDown>
+        ? (
+          <ArrowDown onClick={() => {
+            setStart(start + 1);
+            setEnd(end + 1);
+          }}
+          >
+            <FaAngleDoubleDown color={theme.colours.maroon} size={30} />
+          </ArrowDown>
+        )
         : ''}
-    </div >
+    </div>
   );
 };

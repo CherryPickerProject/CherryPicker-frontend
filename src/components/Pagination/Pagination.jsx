@@ -11,4 +11,3 @@ export const PaginationComponent = ({ totalPages }) => (
     totalPages={totalPages}
   />
 );
-
