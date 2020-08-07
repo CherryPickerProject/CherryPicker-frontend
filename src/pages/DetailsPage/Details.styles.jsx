@@ -2,7 +2,7 @@ import theme from '../../config/theme';
 
 const style = {
   filterbarStyle: {
-    'margin-bottom': '20px'
+    marginBottom: '20px'
   },
 
   detailCardBorderStyle: {
@@ -10,7 +10,7 @@ const style = {
   },
 
   paginationStyle: {
-    'margin-top': '20px'
+    marginTop: '20px'
   }
 };
 

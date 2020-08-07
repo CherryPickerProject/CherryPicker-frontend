@@ -20,9 +20,9 @@ export const TimelineDot = styled.span`
   width: 25px;
   border-radius: 50%;
   position: relative;
+  z-index: 999;
 
-  background-color: ${(props) =>
-    props.active ? theme.colours.maroon : theme.colours.grey};
+  background-color: ${(props) => (props.active ? theme.colours.maroon : theme.colours.grey)};
 
   :hover {
     color: black;

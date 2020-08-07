@@ -54,23 +54,23 @@ const Details = ({ location: { pathname, search } } = {}) => {
             </div>
           </div>
         ) : (
-            <div>
-              <div className="row">
-                <Grid centered stackable columns={2}>
-                  <Grid.Column width={10}>
-                    {mockData.map((result) => (
-                      <DetailCard {...result} />
-                    ))}
-                  </Grid.Column>
-                  <Grid.Column width={4}>
-                    <Segment style={style.detailCardBorderStyle}>
-                      TODO: MAP
+          <div>
+            <div className="row">
+              <Grid centered stackable columns={2}>
+                <Grid.Column width={10}>
+                  {mockData.map((result) => (
+                    <DetailCard {...result} />
+                  ))}
+                </Grid.Column>
+                <Grid.Column width={4}>
+                  <Segment style={style.detailCardBorderStyle}>
+                    TODO: MAP
                   </Segment>
-                  </Grid.Column>
-                </Grid>
-              </div>
+                </Grid.Column>
+              </Grid>
             </div>
-          )}
+          </div>
+        )}
         <Grid centered>
           <Grid.Row style={style.paginationStyle}>
             <PaginationComponent totalPages={mockData.length} />
