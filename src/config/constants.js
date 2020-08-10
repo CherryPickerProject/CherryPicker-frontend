@@ -14,12 +14,3 @@ export const paxOptions = [
   { key: '6-10', text: '6-10', value: 10 },
   { key: '> 11', text: '> 11', value: 11 }
 ];
-
-export const ratingsOptions = [
-  { key: '5', text: '5', value: '5' },
-  { key: '4', text: '4', value: '4' },
-  { key: '3', text: '3', value: '3' },
-  { key: '2', text: '2', value: '2' },
-  { key: '1', text: '1', value: '1' },
-  { key: '0', text: '0', value: '0' }
-];
