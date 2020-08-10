@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { Grid, Form } from 'semantic-ui-react';
+import {
+  Grid,
+  Form,
+  Image,
+  Divider
+} from 'semantic-ui-react';
 import {
   CategoryHeader,
   BriefText,
@@ -24,11 +29,15 @@ export const LandingFilter = ({ category } = {}) => {
     setValues({ ...values, [name]: value });
   };
 
+  const { images } = category;
+  const image1 = images && images.length === 2 ? images[0] : null;
+  const image2 = images && images.length === 2 ? images[1] : null;
+
   const handleSubmit = () => `/detail/?category="${category.categoryName}"&keyword="${values.keyword}"&region="${values.region}"&pax=${values.pax}&ratings=${values.ratings}&price=${values.price}`;
 
   return (
     <Container>
-      <Grid container>
+      <Grid container relaxed="very" columns={3}>
         <Grid.Column mobile={4} tablet={3} computer={2} />
         <Grid.Column mobile={12} tablet={8} computer={6}>
           <Form>
@@ -83,6 +92,13 @@ export const LandingFilter = ({ category } = {}) => {
               </ButtonWrapper>
             </Form.Field>
           </Form>
+        </Grid.Column>
+        <Divider hidden />
+        <Grid.Column mobile={8} tablet={6} computer={4}>
+          <Image.Group>
+            <Image src={image1} />
+            <Image src={image2} />
+          </Image.Group>
         </Grid.Column>
       </Grid>
     </Container>

@@ -9,7 +9,8 @@ const WelcomePage = ({ location: { pathname } } = {}) => {
   const allCategories = [
     {
       categoryName: 'F&B',
-      description: 'Explore our list of restaurants and Cafes which make great places for meetings or celebrations.'
+      description: 'Explore our list of restaurants and Cafes which make great places for meetings or celebrations.',
+      images: ['https://react.semantic-ui.com/images/wireframe/image.png', 'https://react.semantic-ui.com/images/wireframe/image.png']
     }, {
       categoryName: 'Meeting',
       description: 'Explore our list of ballrooms, conference halls or classrooms which can help host your next company event or something as simple as a group project meeting.'
