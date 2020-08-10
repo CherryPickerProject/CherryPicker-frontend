@@ -52,7 +52,7 @@ export const LandingFilter = ({ category } = {}) => {
               <KeywordInput value={values.keyword} onChange={onChange} />
             </Form.Field>
             <Form.Field>
-              <Grid columns={3} stackable>
+              <Grid columns={2} stackable>
                 <Grid.Column>
                   <DropdownHolder
                     placeholder="Region"
@@ -66,14 +66,6 @@ export const LandingFilter = ({ category } = {}) => {
                     placeholder="Pax"
                     name="pax"
                     value={values.pax}
-                    onChange={onChange}
-                  />
-                </Grid.Column>
-                <Grid.Column>
-                  <DropdownHolder
-                    placeholder="Ratings"
-                    name="ratings"
-                    value={values.ratings}
                     onChange={onChange}
                   />
                 </Grid.Column>
