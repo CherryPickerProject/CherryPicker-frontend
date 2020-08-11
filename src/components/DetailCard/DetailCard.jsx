@@ -1,9 +1,14 @@
 import React from 'react';
 import { Segment, Placeholder } from 'semantic-ui-react';
 import { SegmentStyle } from './DetailCard.styles';
+import { FiArrowRightCircle } from 'react-icons/fi';
+import {
+  ButtonWrapper
+} from './DetailCard.styles';
+import { Popup, Icon } from 'semantic-ui-react';
 
 export const DetailCard = ({
-  title, location, description, price, imageLink
+  title, location, description, price, imageLink, link
 } = {}) => (title ? (
 
   <Segment style={SegmentStyle}>
@@ -21,9 +26,15 @@ export const DetailCard = ({
           <div className="header">{title}</div>
           <div className="meta">{location}</div>
           <div className="description">{description}</div>
-          {price.map((item) => (
-            <div className="ui label">{item}</div>
+          <br></br>
+          {price.map((data) => (
+            <Popup content={ data.pricing } trigger={<div className='ui label'>{data.dayOfWeek} {data.time}</div>} />
           ))}
+        </div>
+        <div className="button">
+          <ButtonWrapper as="a" href={link}>
+            <FiArrowRightCircle />
+          </ButtonWrapper>
         </div>
       </div>
     </div>

@@ -5,6 +5,14 @@ import PortalLayout from '../../layouts/PortalLayout';
 import { DetailCard } from '../../components/DetailCard/DetailCard';
 import { PaginationComponent } from '../../components/Pagination/Pagination';
 import style from './Details.styles';
+import { DetailFilter } from '../../components/DetailFilter/DetailFilter';
+import { MapContainer } from '../../components/MapContainer/MapContainer';
+
+const location = {
+  address: 'testing',
+  lat: 103.854371,
+  lng: 1.313174,
+}
 
 const Details = ({ location: { pathname, search } } = {}) => {
   const [mockData, setMockData] = useState([]);
@@ -18,10 +26,8 @@ const Details = ({ location: { pathname, search } } = {}) => {
         location: detail.location,
         description: detail.description,
         imageLink: detail.images[0],
-        price: detail.price.reduce(
-          (acc, { pricing }) => acc.concat(pricing),
-          []
-        )
+        price: detail.price,
+        link: detail.link
       });
     });
     setMockData(result);
@@ -34,20 +40,20 @@ const Details = ({ location: { pathname, search } } = {}) => {
     <PortalLayout pathname={pathname}>
       <div>
         <div className="row" style={style.filterbarStyle}>
-          TODO: Add in the filter components here
+          <DetailFilter></DetailFilter>
         </div>
         {loading ? (
           <div>
             <div className="row">
               <Grid centered stackable columns={2}>
-                <Grid.Column width={10}>
+                <Grid.Column width={9}>
                   {[...Array(10)].map(() => (
                     <DetailCard />
                   ))}
                 </Grid.Column>
-                <Grid.Column width={4}>
+                <Grid.Column width={5}>
                   <Segment style={style.detailCardBorderStyle}>
-                    TODO: MAP
+                    <MapContainer location={location}></MapContainer>
                   </Segment>
                 </Grid.Column>
               </Grid>
@@ -57,14 +63,14 @@ const Details = ({ location: { pathname, search } } = {}) => {
             <div>
               <div className="row">
                 <Grid centered stackable columns={2}>
-                  <Grid.Column width={10}>
+                  <Grid.Column width={9}>
                     {mockData.map((result) => (
                       <DetailCard {...result} />
                     ))}
                   </Grid.Column>
-                  <Grid.Column width={4}>
+                  <Grid.Column width={5}>
                     <Segment style={style.detailCardBorderStyle}>
-                      TODO: MAP
+                      <MapContainer></MapContainer>
                   </Segment>
                   </Grid.Column>
                 </Grid>
