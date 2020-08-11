@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'rc-slider';
 import { CategoryHeader } from './PriceSlider.styles';
 import 'rc-slider/assets/index.css';
-import { useState } from 'react';
 
 export const PriceSlider = ({ updatePrice } = {}) => {
-
   const [priceDisplay, setPriceDisplay] = useState(100);
 
   const onChange = (value) => {
-    setPriceDisplay(value)
+    setPriceDisplay(value);
     updatePrice(value);
   };
 
@@ -30,4 +28,3 @@ export const PriceSlider = ({ updatePrice } = {}) => {
     </div>
   );
 };
-

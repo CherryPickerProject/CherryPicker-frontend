@@ -5,4 +5,3 @@ export const CategoryHeader = styled.span`
   width: 100%;
   text-align: end;
 `;
-

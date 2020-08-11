@@ -8,5 +8,3 @@ export const KeywordInput = ({ value, onChange } = {}) => (
     placeholder="Type Keywords"
   />
 );
-
-

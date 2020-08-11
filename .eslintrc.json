@@ -19,6 +19,7 @@
     "no-unused-expressions": 0,
     "react/jsx-props-no-spreading": 0,
     "jsx-a11y/click-events-have-key-events": 0,
+    "import/prefer-default-export": 0,
     "comma-dangle": [
       "error",
       {
