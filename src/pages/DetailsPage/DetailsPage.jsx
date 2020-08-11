@@ -10,9 +10,12 @@ import { MapContainer } from '../../components/MapContainer/MapContainer';
 
 const location = {
   address: 'testing',
-  lat: 103.854371,
-  lng: 1.313174,
-}
+  center: {
+    lat: 1.313174,
+    lng: 103.854371
+  },
+  zoom: 11
+};
 
 const Details = ({ location: { pathname, search } } = {}) => {
   const [mockData, setMockData] = useState([]);
@@ -53,24 +56,24 @@ const Details = ({ location: { pathname, search } } = {}) => {
                 </Grid.Column>
                 <Grid.Column width={5}>
                   <Segment style={style.detailCardBorderStyle}>
-                    <MapContainer location={location}></MapContainer>
+                    <MapContainer center={location.center} zoom={location.zoom} />
                   </Segment>
                 </Grid.Column>
               </Grid>
             </div>
           </div>
         ) : (
-            <div>
-              <div className="row">
-                <Grid centered stackable columns={2}>
-                  <Grid.Column width={9}>
-                    {mockData.map((result) => (
-                      <DetailCard {...result} />
-                    ))}
-                  </Grid.Column>
-                  <Grid.Column width={5}>
-                    <Segment style={style.detailCardBorderStyle}>
-                      <MapContainer></MapContainer>
+          <div>
+            <div className="row">
+              <Grid centered stackable columns={2}>
+                <Grid.Column width={9}>
+                  {mockData.map((result) => (
+                    <DetailCard {...result} />
+                  ))}
+                </Grid.Column>
+                <Grid.Column width={5}>
+                  <Segment style={style.detailCardBorderStyle}>
+                    <MapContainer center={location.center} zoom={location.zoom} />
                   </Segment>
                 </Grid.Column>
               </Grid>
