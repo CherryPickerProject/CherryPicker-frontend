@@ -60,7 +60,6 @@ const Details = ({ location: { pathname, search } } = {}) => {
             </div>
           </div>
         ) : (
-<<<<<<< HEAD
             <div>
               <div className="row">
                 <Grid centered stackable columns={2}>
@@ -72,19 +71,6 @@ const Details = ({ location: { pathname, search } } = {}) => {
                   <Grid.Column width={5}>
                     <Segment style={style.detailCardBorderStyle}>
                       <MapContainer></MapContainer>
-=======
-          <div>
-            <div className="row">
-              <Grid centered stackable columns={2}>
-                <Grid.Column width={10}>
-                  {mockData.map((result) => (
-                    <DetailCard {...result} />
-                  ))}
-                </Grid.Column>
-                <Grid.Column width={4}>
-                  <Segment style={style.detailCardBorderStyle}>
-                    TODO: MAP
->>>>>>> fba7385fcfb3038754d870b0a156f92d4a08788c
                   </Segment>
                 </Grid.Column>
               </Grid>
