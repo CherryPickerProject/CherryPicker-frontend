@@ -32,7 +32,14 @@ export const LandingFilter = ({ category } = {}) => {
   const image1 = images && images.length === 2 ? images[0] : null;
   const image2 = images && images.length === 2 ? images[1] : null;
 
-  const handleSubmit = () => `/detail/?category="${category.categoryName}"&keyword="${values.keyword}"&region="${values.region}"&pax=${values.pax}&price=${values.price}`;
+  function getProperty(prop) {
+    if (category && category[prop]) {
+      return category[prop];
+    }
+    return '';
+  }
+
+  const handleSubmit = () => `/detail/?category="${getProperty('categoryName')}"&keyword="${values.keyword}"&region="${values.region}"&pax=${values.pax}&price=${values.price}`;
 
   return (
     <Container>
@@ -41,9 +48,9 @@ export const LandingFilter = ({ category } = {}) => {
         <Grid.Column mobile={12} tablet={8} computer={6}>
           <Form>
             <Form.Field>
-              <CategoryHeader>{category.categoryName}</CategoryHeader>
+              <CategoryHeader>{getProperty('categoryName')}</CategoryHeader>
               <BriefText>
-                {category.description}
+                {getProperty('description')}
               </BriefText>
             </Form.Field>
             <br />
