@@ -2,8 +2,8 @@ import React from 'react';
 
 import main from '../../images/main.svg';
 
-const Notfound = () => (
+const Error404 = () => (
   <img className="ui  centered massive image" src={main} alt="Page Not Found" />
 );
 
-export default Notfound;
+export default Error404;

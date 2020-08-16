@@ -5,7 +5,7 @@ import WelcomePage from './pages/WelcomePage/WelcomePage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import BookmarksPage from './pages/BookmarksPage/BookmarksPage';
 import DetailsPage from './pages/DetailsPage/DetailsPage';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import Error404 from './pages/ErrorPage/Error404';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -14,7 +14,7 @@ ReactDOM.render(
       <Route exact path="/about" component={AboutPage} />
       <Route exact path="/bookmarks" component={BookmarksPage} />
       <Route exact path="/detail" component={DetailsPage} />
-      <Route path="*" component={NotFoundPage} />
+      <Route path="*" component={Error404} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
