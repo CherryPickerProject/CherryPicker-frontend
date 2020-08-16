@@ -15,14 +15,9 @@ https://react-icons.github.io/react-icons/
 #### CSS
 
 https://react.semantic-ui.com/
-<<<<<<< Updated upstream
-||||||| merged common ancestors
 
 ## Understanding the architecture of the cherryPicker project
 
 * Note: Elasticsearch is hosted on AWS as well.
 
 ![Architecture](src/images/CherryPicker_Architecture.png)
-=======
-
->>>>>>> Stashed changes
