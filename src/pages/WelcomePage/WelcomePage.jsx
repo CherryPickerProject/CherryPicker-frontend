@@ -5,6 +5,7 @@ import { Timeline } from '../../components/Timeline/Timeline';
 import style from './WelcomePage.styles';
 import { getCategories } from '../../config/axios';
 import { useErrorStatus } from '../../ErrorHandler';
+import LoadSpinner from '../../components/LoadSpinner/LoadSpinner';
 
 const WelcomePage = ({ location: { pathname } } = {}) => {
   // Retrieve allCategories from API
@@ -41,8 +42,10 @@ const WelcomePage = ({ location: { pathname } } = {}) => {
           <LandingFilter category={active} />
         </div>
       )
-        : null }
-      {/* TODO: Display loading instead of null */}
+        : (
+          // Display loading spinner
+          <LoadSpinner />
+        )}
     </PortalLayout>
   );
 };
