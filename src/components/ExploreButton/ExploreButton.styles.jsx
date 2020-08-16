@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import theme from '../../config/theme';
 
-export const Explore = styled(Link)`
+export const Explore = styled.span`
   font-size: 50px;
   font-weight: bold;
   display: inline-flex;

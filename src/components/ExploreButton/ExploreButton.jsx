@@ -2,10 +2,10 @@ import React from 'react';
 import { FiArrowRightCircle } from 'react-icons/fi';
 import { Explore, ButtonText } from './ExploreButton.styles';
 
-export const ExploreButton = ({ handleSubmit } = {}) => (
+export const ExploreButton = ({ handleExploreButtonClick } = {}) => (
   <div>
     <Explore
-      to={handleSubmit}
+      onClick={handleExploreButtonClick}
     >
       <ButtonText>Explore</ButtonText>
       <FiArrowRightCircle />

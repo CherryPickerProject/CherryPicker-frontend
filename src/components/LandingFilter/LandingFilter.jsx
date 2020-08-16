@@ -15,31 +15,37 @@ import { KeywordInput } from '../KeywordInput/KeywordInput';
 import { DropdownHolder } from '../Dropdown/Dropdown';
 import { PriceSlider } from '../PriceSlider/PriceSlider';
 import { ExploreButton } from '../ExploreButton/ExploreButton';
+import { useHistory } from 'react-router-dom';
 
-export const LandingFilter = ({ category } = {}) => {
+export const LandingFilter = ({ categoryProp } = {}) => {
+  const history = useHistory();
   const [values, setValues] = useState({
     keyword: '',
     region: '',
-    pax: '',
+    pax: 0,
     price: '100'
   });
+
   const onChange = (e, result) => {
     const { name, value } = result || e.target;
     setValues({ ...values, [name]: value });
   };
 
-  const { images } = category;
-  const image1 = images && images.length === 2 ? images[0] : null;
-  const image2 = images && images.length === 2 ? images[1] : null;
-
-  function getProperty(prop) {
-    if (category && category[prop]) {
-      return category[prop];
+  const handleExploreButtonClick = async () => {
+    const query = {
+      "category": categoryProp ? categoryProp.categoryName : '',
+      "keyword": values.keyword,
+      "region": values.region,
+      "pax": values.pax,
+      "price": values.price,
+      "activePage": 1 //First page by default
     }
-    return '';
-  }
 
-  const handleSubmit = () => `/detail/?category="${getProperty('categoryName')}"&keyword="${values.keyword}"&region="${values.region}"&pax=${values.pax}&price=${values.price}`;
+    history.push({
+      pathname: '/detail',
+      state: { detail: query }
+    });
+  }
 
   return (
     <Container>
@@ -48,9 +54,9 @@ export const LandingFilter = ({ category } = {}) => {
         <Grid.Column mobile={12} tablet={8} computer={6}>
           <Form>
             <Form.Field>
-              <CategoryHeader>{getProperty('categoryName')}</CategoryHeader>
+              <CategoryHeader>{categoryProp['categoryName']}</CategoryHeader>
               <BriefText>
-                {getProperty('description')}
+                {categoryProp['description']}
               </BriefText>
             </Form.Field>
             <br />
@@ -86,7 +92,7 @@ export const LandingFilter = ({ category } = {}) => {
             </Form.Field>
             <Form.Field>
               <ButtonWrapper>
-                <ExploreButton handleSubmit={handleSubmit} />
+                <ExploreButton handleExploreButtonClick={handleExploreButtonClick} />
               </ButtonWrapper>
             </Form.Field>
           </Form>
@@ -94,8 +100,8 @@ export const LandingFilter = ({ category } = {}) => {
         <Divider hidden />
         <Grid.Column mobile={8} tablet={6} computer={4}>
           <Image.Group>
-            <Image src={image1} />
-            <Image src={image2} />
+            <Image src={categoryProp.topTwoPhotos[0]} />
+            <Image src={categoryProp.topTwoPhotos[1]} />
           </Image.Group>
         </Grid.Column>
       </Grid>
