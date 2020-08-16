@@ -6,16 +6,19 @@ import AboutPage from './pages/AboutPage/AboutPage';
 import BookmarksPage from './pages/BookmarksPage/BookmarksPage';
 import DetailsPage from './pages/DetailsPage/DetailsPage';
 import Error404 from './pages/ErrorPage/Error404';
+import { ErrorHandler } from './ErrorHandler';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={WelcomePage} />
-      <Route exact path="/about" component={AboutPage} />
-      <Route exact path="/bookmarks" component={BookmarksPage} />
-      <Route exact path="/detail" component={DetailsPage} />
-      <Route path="*" component={Error404} />
-    </Switch>
+    <ErrorHandler>
+      <Switch>
+        <Route exact path="/" component={WelcomePage} />
+        <Route exact path="/about" component={AboutPage} />
+        <Route exact path="/bookmarks" component={BookmarksPage} />
+        <Route exact path="/detail" component={DetailsPage} />
+        <Route path="*" component={Error404} />
+      </Switch>
+    </ErrorHandler>
   </BrowserRouter>,
   document.getElementById('root')
 );

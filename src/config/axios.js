@@ -5,4 +5,4 @@ const api = axios.create({
   responseType: 'json'
 });
 
-export const getCategories = api.get('/categories2');
+export const getCategories = api.get('/categories');
