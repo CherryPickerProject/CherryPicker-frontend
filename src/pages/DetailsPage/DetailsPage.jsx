@@ -57,7 +57,7 @@ const Details = () => {
               <div className="row">
                 <Grid centered stackable columns={2}>
                   <Grid.Column width={10}>
-                    {data.map((result, index) => (
+                    {data.map((result) => (
                       <DetailCard {...result} />
                     ))}
                   </Grid.Column>
