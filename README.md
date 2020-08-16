@@ -5,8 +5,8 @@
 
 ## How to start development
 
-To install all required dependencies `npm install`
-To start the local server running `npm run dev`
+- To install all required dependencies `npm install`
+- To start the local server running `npm run dev`
 
 #### Icons used
 
