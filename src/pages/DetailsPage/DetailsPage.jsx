@@ -35,7 +35,7 @@ const Details = () => {
         <div className="row" style={style.filterbarStyle}>
           TODO: Add in the filter components here
         </div>
-        {loading && data ? (
+        {loading && data.length == 0 ? (
           <div>
             <div className="row">
               <Grid centered stackable columns={2}>
