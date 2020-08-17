@@ -100,8 +100,8 @@ export const LandingFilter = ({ categoryProp } = {}) => {
         <Divider hidden />
         <Grid.Column mobile={8} tablet={6} computer={4}>
           <Image.Group>
-            <Image src={categoryProp.topTwoPhotos[0]} />
-            <Image src={categoryProp.topTwoPhotos[1]} />
+            <Image src={categoryProp['topTwoPhotos'][0]} />
+            <Image src={categoryProp['topTwoPhotos'][1]} />
           </Image.Group>
         </Grid.Column>
       </Grid>
