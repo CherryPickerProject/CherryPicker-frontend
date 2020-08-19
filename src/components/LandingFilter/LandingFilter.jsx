@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Grid,
   Form,
@@ -15,14 +16,13 @@ import { KeywordInput } from '../KeywordInput/KeywordInput';
 import { DropdownHolder } from '../Dropdown/Dropdown';
 import { PriceSlider } from '../PriceSlider/PriceSlider';
 import { ExploreButton } from '../ExploreButton/ExploreButton';
-import { useHistory } from 'react-router-dom';
 
 export const LandingFilter = ({ categoryProp } = {}) => {
   const history = useHistory();
   const [values, setValues] = useState({
     keyword: '',
     region: '',
-    pax: 0,
+    pax: 5,
     price: '100'
   });
 
@@ -33,19 +33,19 @@ export const LandingFilter = ({ categoryProp } = {}) => {
 
   const handleExploreButtonClick = async () => {
     const query = {
-      "category": categoryProp ? categoryProp.categoryName : '',
-      "keyword": values.keyword,
-      "region": values.region,
-      "pax": values.pax,
-      "price": values.price,
-      "activePage": 1 //First page by default
-    }
+      category: categoryProp ? categoryProp.categoryName : '',
+      keyword: values.keyword,
+      region: values.region,
+      pax: values.pax,
+      price: values.price,
+      activePage: 1 // First page by default
+    };
 
     history.push({
       pathname: '/detail',
       state: { detail: query }
     });
-  }
+  };
 
   return (
     <Container>

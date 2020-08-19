@@ -8,7 +8,6 @@ import { useErrorStatus } from '../../ErrorHandler';
 import LoadSpinner from '../../components/LoadSpinner/LoadSpinner';
 
 const WelcomePage = ({ location: { pathname } } = {}) => {
-
   const allCategories = useRef([]);
   const [active, setActive] = useState();
   const { setErrorStatusCode } = useErrorStatus();

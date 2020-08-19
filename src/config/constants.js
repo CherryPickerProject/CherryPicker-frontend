@@ -10,7 +10,7 @@ export const regionOptions = [
 // and return search results that can accomodate at least the higher range
 // of pax
 export const paxOptions = [
-  { key: '1-5', text: '1-5', value: 5 },
-  { key: '6-10', text: '6-10', value: 10 },
-  { key: '> 11', text: '> 11', value: 11 }
+  { key: '1-5', text: '1-5 pax', value: 5 },
+  { key: '6-10', text: '6-10 pax', value: 10 },
+  { key: '> 11', text: '> 11 pax', value: 11 }
 ];
