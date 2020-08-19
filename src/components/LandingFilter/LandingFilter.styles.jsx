@@ -12,7 +12,3 @@ export const BriefText = styled.div`
 export const ButtonWrapper = styled.div`
   text-align: end;
 `;
-
-export const Container = styled.div`
-  margin-top: 80px;
-`;

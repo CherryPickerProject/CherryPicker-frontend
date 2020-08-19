@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
-  Grid,
-  Form,
-  Image,
-  Divider
+  Grid, Form
 } from 'semantic-ui-react';
 import {
-  CategoryHeader,
-  BriefText,
-  ButtonWrapper,
-  Container
+  CategoryHeader, BriefText, ButtonWrapper
 } from './LandingFilter.styles';
 import { KeywordInput } from '../KeywordInput/KeywordInput';
 import { DropdownHolder } from '../Dropdown/Dropdown';
@@ -48,63 +42,49 @@ export const LandingFilter = ({ categoryProp } = {}) => {
   };
 
   return (
-    <Container>
-      <Grid container relaxed="very" columns={3}>
-        <Grid.Column mobile={4} tablet={3} computer={2} />
-        <Grid.Column mobile={12} tablet={8} computer={6}>
-          <Form>
-            <Form.Field>
-              <CategoryHeader>{categoryProp['categoryName']}</CategoryHeader>
-              <BriefText>
-                {categoryProp['description']}
-              </BriefText>
-            </Form.Field>
-            <br />
-            <Form.Field>
-              <KeywordInput value={values.keyword} onChange={onChange} />
-            </Form.Field>
-            <Form.Field>
-              <Grid columns={2} stackable>
-                <Grid.Column>
-                  <DropdownHolder
-                    placeholder="Region"
-                    name="region"
-                    value={values.region}
-                    onChange={onChange}
-                  />
-                </Grid.Column>
-                <Grid.Column>
-                  <DropdownHolder
-                    placeholder="Pax"
-                    name="pax"
-                    value={values.pax}
-                    onChange={onChange}
-                  />
-                </Grid.Column>
-              </Grid>
-            </Form.Field>
-            <Form.Field>
-              <PriceSlider
-                updatePrice={(value) => {
-                  setValues({ ...values, price: value });
-                }}
-              />
-            </Form.Field>
-            <Form.Field>
-              <ButtonWrapper>
-                <ExploreButton handleExploreButtonClick={handleExploreButtonClick} />
-              </ButtonWrapper>
-            </Form.Field>
-          </Form>
-        </Grid.Column>
-        <Divider hidden />
-        <Grid.Column mobile={8} tablet={6} computer={4}>
-          <Image.Group>
-            <Image src={categoryProp['topTwoPhotos'][0]} />
-            <Image src={categoryProp['topTwoPhotos'][1]} />
-          </Image.Group>
-        </Grid.Column>
-      </Grid>
-    </Container>
+    <Form>
+      <Form.Field>
+        <CategoryHeader>{categoryProp['categoryName']}</CategoryHeader>
+        <BriefText>
+          {categoryProp['description']}
+        </BriefText>
+      </Form.Field>
+      <br />
+      <Form.Field>
+        <KeywordInput value={values.keyword} onChange={onChange} />
+      </Form.Field>
+      <Form.Field>
+        <Grid columns={2} stackable>
+          <Grid.Column>
+            <DropdownHolder
+              placeholder="Region"
+              name="region"
+              value={values.region}
+              onChange={onChange}
+            />
+          </Grid.Column>
+          <Grid.Column>
+            <DropdownHolder
+              placeholder="Pax"
+              name="pax"
+              value={values.pax}
+              onChange={onChange}
+            />
+          </Grid.Column>
+        </Grid>
+      </Form.Field>
+      <Form.Field>
+        <PriceSlider
+          updatePrice={(value) => {
+            setValues({ ...values, price: value });
+          }}
+        />
+      </Form.Field>
+      <Form.Field>
+        <ButtonWrapper>
+          <ExploreButton handleExploreButtonClick={handleExploreButtonClick} />
+        </ButtonWrapper>
+      </Form.Field>
+    </Form>
   );
 };
