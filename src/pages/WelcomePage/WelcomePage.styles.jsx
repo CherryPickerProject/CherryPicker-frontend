@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+
 const style = {
   main: {
     height: '100vh',
@@ -6,5 +8,9 @@ const style = {
     paddingTop: '40px'
   }
 };
+
+export const Container = styled.div`
+  margin-top: 80px;
+`;
 
 export default style;

@@ -37,7 +37,7 @@ export const Timeline = ({ allCategories, active, onClick } = {}) => {
             <TimelineDot
               onClick={() => onClick(item)}
               id={item}
-              active={active.categoryName === item.categoryName}
+              active={active && active.categoryName === item.categoryName}
             >
               <TimelineText>{item.categoryName}</TimelineText>
             </TimelineDot>

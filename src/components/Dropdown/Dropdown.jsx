@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dropdown } from 'semantic-ui-react';
-import { regionOptions, paxOptions, ratingsOptions } from '../../config/constants';
+import { regionOptions, paxOptions } from '../../config/constants';
 
 export const DropdownHolder = ({
   placeholder, name, value, onChange
@@ -8,9 +8,6 @@ export const DropdownHolder = ({
   const getOptions = () => {
     if (placeholder === 'Region') {
       return regionOptions;
-    }
-    if (placeholder === 'Ratings') {
-      return ratingsOptions;
     }
     if (placeholder === 'Pax') {
       return paxOptions;
