@@ -28,11 +28,33 @@ const Details = () => {
     fetchVenues();
   }, []);
 
+  // Bookmarks - stored as a list of title
+  // TODO: update to some form of unique identifier
+  const [bookmarks, setBookmarks] = React.useState(
+    JSON.parse(localStorage.getItem('bookmarks')) || []
+  );
+
+  const updateBookmarks = (title) => {
+    const index = bookmarks.indexOf(title);
+    let newBookmarks = bookmarks;
+    if (index > -1) {
+      // Remove from bookmark
+      newBookmarks = bookmarks.filter((value, idx) => index !== idx);
+    } else {
+      // Add to bookmark
+      newBookmarks = [...bookmarks, title];
+    }
+    setBookmarks(newBookmarks);
+    localStorage.setItem('bookmarks', JSON.stringify(newBookmarks));
+  };
+
   return (
     <PortalLayout pathname="/detail">
       <div>
         <div className="row" style={style.filterbarStyle}>
           TODO: Add in the filter components here
+          {/* For testing purposes to preview current bookmarks list */}
+          {bookmarks}
         </div>
         {loading && data.length === 0 ? (
           <div>
@@ -57,7 +79,7 @@ const Details = () => {
               <Grid centered stackable columns={2}>
                 <Grid.Column width={10}>
                   {data.map((result) => (
-                    <DetailCard {...result} />
+                    <DetailCard {...result} bookmarks={bookmarks} updateBookmarks={updateBookmarks} />
                   ))}
                 </Grid.Column>
                 <Grid.Column width={4}>
