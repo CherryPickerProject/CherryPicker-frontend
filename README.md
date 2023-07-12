@@ -21,3 +21,6 @@ https://react.semantic-ui.com/
 * Note: Elasticsearch is hosted on AWS as well.
 
 ![Architecture](src/images/CherryPicker_Architecture.png)
+
+## Project video
+https://photos.app.goo.gl/pWDNmbv5tWAiS9JR9
